@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 import logo from '../assets/PokeTrumps logo.png'
+import RandomPokemon from './RandomPokemon'
 
 
 
@@ -15,37 +16,41 @@ const MainBlock = () => {
 // -------------------------------------------------------------------------------------
 
     // Components to show in MainBlock on cards screen***********************************
-    const cardsMain = () => {
-
+    const CardsMain = () => {
 
         return (
             <div className='Slate'>
-            <header>
-                <p className='App'>ROUND 1</p>
-                <img 
-                    src= {logo} 
-                    className= "App-logo-small" 
-                    alt= "small logo" 
-                />
-            </header>
-            <p 
-            className= "App-text">
-                
-            </p>
+                <header className='Slate-header'>
+                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                    <img
+                        src={logo}
+                        className="App-logo-small"
+                        alt="small logo" />
+                </header>
+                <div className='Slate-header'>
+                    <p className='App-text'>
+                        You've been given...
+                    </p>
+                    <p className='App-text' style={{ marginLeft: "20vw" }}>
+                        You're opponent has...
+                    </p>
+                </div>
+                <RandomPokemon/>
             </div>
         )
     }
-
+            
+                    
 
     // Components to show in MainBlock on intro screen***********************************
     const IntroMain = () => {
 
-        useEffect(() => {
-            const timer = setTimeout(() => {
-              setMainBlock(cardsMain)
-            }, 2000);
-            return () => clearTimeout(timer);
-        }, []);
+        // useEffect(() => {
+        //     const timer = setTimeout(() => {
+        //       setMainBlock(cardsMain)
+        //     }, 2000);
+        //     return () => clearTimeout(timer);
+        // }, []);
         
         
         return (
@@ -57,7 +62,7 @@ const MainBlock = () => {
                     alt= "small logo" 
                 />
                 <p 
-                className= "App-header">
+                className= "App-text">
                     Okay, let's battle some Pokemon!
                 </p>
             </div>
@@ -91,7 +96,7 @@ const MainBlock = () => {
                     <button 
                         type= "button" 
                         className='Red-button' 
-                        onClick= {() => setMainBlock(IntroMain)}>
+                        onClick= {() => setMainBlock(CardsMain)}>
                             Okay, I'm ready to start
                     </button>
                 </div>
@@ -113,7 +118,6 @@ const MainBlock = () => {
                     src= {logo} 
                     className= "App-logo" 
                     alt= "large rocking logo" 
-                    // style= {{ width:525, height: 150 }} 
                 />
                 <p 
                     className= "App-text">
@@ -124,7 +128,7 @@ const MainBlock = () => {
                         <button 
                             type= "button" 
                             className='Red-button' 
-                            onClick= {() => setMainBlock(IntroMain)}>
+                            onClick= {() => setMainBlock(CardsMain)}>
                                 START
                         </button>
                         <button 
@@ -152,7 +156,7 @@ const MainBlock = () => {
     
 
     return (mainBlock)
-    }
+}
 
 
 export default MainBlock

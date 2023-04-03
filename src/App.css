@@ -24,9 +24,20 @@
   justify-content: top;
 }
 
+.Slate-header {
+  position: fixed;
+  padding: 0vw;
+  margin-left: 3vw;
+  margin-right: auto;
+  display:flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+}
+
 
 .App-logo-small {
-  width: 50vh;
+  width: 30vw;
   pointer-events: none;
   padding-bottom: 1.5vw;
 }
@@ -77,7 +88,8 @@
 
 .App-text {
   width: fit-content;
-  padding: 0vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -88,7 +100,7 @@
   font-size: 2.5vw;
   color: black;
   font-weight: 950;
-  background-color: Rgba(255, 255, 255, 0.75);
+  background-color: Rgba(255, 255, 255, 0.80);
 
 }
 
@@ -123,4 +135,65 @@
   color: rgb(255, 0, 0);
   font-weight: 950;
   -webkit-text-stroke: 0.25vw black;
+}
+
+
+.buttonGenerate{
+  width: 10vw;
+  height: 3vw;
+  background-color: #e4000f;
+  color: #FFFFFF;
+  border: 2vw;
+  border-radius: 5vw;
+  font-size: 1.2vw;
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  transition: background-color 0.8s;
+}
+
+.buttonGenerate:hover{
+  cursor: pointer;
+  background-color: #727272;
+}
+
+.mainCard{
+  width: 20vw;
+  height: 30vw;
+  padding: 2vw 2vw;
+  margin-bottom: 5vw;
+  border-radius: 2vw;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url(assets/pokecard.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  box-shadow: 1vw 1vw 0.5vw rgba(0, 0, 0, 0.8);
+}
+
+.mainText{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+  padding: 1vw;
+  border-radius: 0.5vw;
+}
+
+.pokemonType, .pokemonName, .pokemonMoves, .pokemonAbilities{
+  display: flex;
+  flex-basis: 100%;
+  font-size: 1.3vw;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8vw;
+  text-align: left;
+  text-shadow: 0.2vw 0.2vw 0.1vw rgb(0, 0, 0);
+
+}
+
+.pokemonImage{
+  display: flex;
+  width: 20vw;
+  height: 15vw;
+  margin-bottom: 2vw;
+  flex-basis: 100%;
+  transition: transform 3s;
+}
+
+.pokemonImage:hover{
+  transform: scale(-1.1, 1.1);
 }
