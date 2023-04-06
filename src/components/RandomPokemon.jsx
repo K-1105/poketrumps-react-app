@@ -1,7 +1,8 @@
+import React, { useState, useEffect } from 'react'
 
 const RandomPokemon = () => {
 
-    const pokemonData = {
+    const [pokemonData, setPokemonData] = useState({
         image: null,
         pokemonName: null,
         id: null,
@@ -9,29 +10,32 @@ const RandomPokemon = () => {
         height: null,
         weight: null,
         dataState: false
-    }
+    })
                        
-    const randomNumber = Math.floor(Math.random() * 150)
-    const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
-    fetch(url)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data)
-        pokemonData.image = (data.sprites.other["official-artwork"].front_default)
-        pokemonData.pokemonName = (data.name)
-        pokemonData.id = (data.id)
-        pokemonData.xp = (data.base_experience)
-        pokemonData.height = (data.height)
-        pokemonData.weight = (data.weight)
-        pokemonData.dataState = (true)     
-    },
-    !pokemonData.dataState && return <div>Loading...</div>
-    )
+    useEffect(() => {
+        const randomNumber = Math.floor(Math.random() * 150)
+        const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                setPokemonData({
+                    image: (data.sprites.other["official-artwork"].front_default),
+                    pokemonName: (data.name),
+                    id: (data.id),
+                    xp: (data.base_experience),
+                    height: (data.height),
+                    weight: (data.weight),
+                    dataState: (true)
+                })
+            })
+    }, [])
 
+    if (!pokemonData.dataState) {
+        return <div>Loading...</div>
+    }
     
     return (
-
-        <div className='pokemonCard'>
+        <button type= "button" className='pokemonCard'>
             <img src={pokemonData.image} className="pokemonImage"></img>
             <div className='pokemonCardText'>
                 <span >Name: {pokemonData.pokemonName}</span>
@@ -40,12 +44,8 @@ const RandomPokemon = () => {
                 <span >Height: {pokemonData.height}</span>
                 <span >Weight: {pokemonData.weight}</span>
             </div>
-        </div>         
+        </button>         
     ) 
-    }
-
-    
-
-
+}
 
 export default RandomPokemon
