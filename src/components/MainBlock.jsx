@@ -35,7 +35,10 @@ const MainBlock = () => {
                         You're opponent has...
                     </p>
                 </div>
-                <RandomPokemon/>
+                <div className='Card-deck'>
+                    {<RandomPokemon/>}
+                   
+                </div>
             </div>
         )
     }

@@ -1,60 +1,51 @@
-import React, { useState } from 'react'
 
 const RandomPokemon = () => {
-        
-    const [image, setImage] = useState(null)
-    const [name, setName] = useState(null)
-    const [id, setId] = useState(null)
-    const [xp, setXp] = useState(null)
-    const [height, setHeight] = useState(null)
-    const [weight, setWeight] = useState(null)
-    const [dataState, setDataState] = useState(false)
 
-    const getPokemon = () => {
-                
-        const randomNumber = Math.floor(Math.random() * 150)
-        const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
-        fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            setImage(data.sprites.other["official-artwork"].front_default)
-            setName(data.name.toUpperCase())
-            setId(data.id)
-            setXp(data.base_experience)
-            setHeight(data.height)
-            setWeight(data.weight)
-            setDataState(true)
-        })
+    const pokemonData = {
+        image: null,
+        pokemonName: null,
+        id: null,
+        xp: null,
+        height: null,
+        weight: null,
+        dataState: false
+    }
+                       
+    const randomNumber = Math.floor(Math.random() * 150)
+    const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        pokemonData.image = (data.sprites.other["official-artwork"].front_default)
+        pokemonData.pokemonName = (data.name)
+        pokemonData.id = (data.id)
+        pokemonData.xp = (data.base_experience)
+        pokemonData.height = (data.height)
+        pokemonData.weight = (data.weight)
+        pokemonData.dataState = (true)     
+    },
+    !pokemonData.dataState && return <div>Loading...</div>
+    )
 
-        return (
-            <div>
-                {
-                dataState && 
-                    <div className='mainCard'>
-                    <img src={image} className="pokemonImage"></img>
-                    <div className='mainText'>
-                        <span >Name: {name}</span>
-                        <span >ID: {id}</span>
-                        <span >XP: {xp}</span>
-                        <span >Height: {height}</span>
-                        <span >Weight: {weight}</span>
-                    </div>
-                    </div>
-                }
-                <button 
-                type="button" onClick={() => getPokemon} 
-                className='buttonGenerate'>
-                    Generate
-                </button>
-            
+    
+    return (
+
+        <div className='pokemonCard'>
+            <img src={pokemonData.image} className="pokemonImage"></img>
+            <div className='pokemonCardText'>
+                <span >Name: {pokemonData.pokemonName}</span>
+                <span >ID: {pokemonData.id}</span>
+                <span >XP: {pokemonData.xp}</span>
+                <span >Height: {pokemonData.height}</span>
+                <span >Weight: {pokemonData.weight}</span>
             </div>
-        ) 
+        </div>         
+    ) 
     }
 
-    return(
-        getPokemon()
-    )
-}
+    
+
+
 
 export default RandomPokemon
