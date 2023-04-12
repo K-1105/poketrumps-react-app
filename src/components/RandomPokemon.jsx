@@ -30,11 +30,13 @@ const RandomPokemon = () => {
             })
     }, [])
 
+   
     if (!pokemonData.dataState) {
-        return <div>Loading...</div>
+        return <div className='"App-text'>Loading...</div>
     }
     
     return (
+        console.log(pokemonData),
         <button type= "button" className='pokemonCard'>
             <img src={pokemonData.image} className="pokemonImage"></img>
             <div className='pokemonCardText'>
@@ -46,6 +48,7 @@ const RandomPokemon = () => {
             </div>
         </button>         
     ) 
+
 }
 
 export default RandomPokemon
