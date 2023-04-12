@@ -1,4 +1,27 @@
-# Getting Started with Create React App
+# poketrumps-react-app
+
+<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/K-1105/poketrumps-react-app"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/K-1105/poketrumps-react-app"><img alt="GitHub repo file count" src="https://img.shields.io/github/directory-file-count/K-1105/poketrumps-react-app">
+
+---
+:link:
+[link to GitHub pages site](https://k-1105.github.io/poketrumps-react-app/)
+:link:
+---
+
+## PokeTrumps React App
+
+This app has been created for a **Code First Girls** JavaScript kickstarter course, sponsored by GCHQ.
+
+
+The site uses React to:
+- call data from the Pokemon API, https://pokeapi.co.
+
+---
+<br>
+<br>
+  
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
