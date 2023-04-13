@@ -77,7 +77,7 @@ const MainBlock = () => {
                                     CONGRATULATIONS! {myPokemon.pokemonName} beat {oppositionPokemon.pokemonName} on {battleAttribute}!
                                 </p>
                                 <p className='App-text'>
-                                    Click to play again
+                                    Press any key to play again
                                 </p>
                             </div>
                             <div className='Battle_Deck'>
@@ -100,7 +100,7 @@ const MainBlock = () => {
                                     I'm afraid {myPokemon.pokemonName} lost to {oppositionPokemon.pokemonName} on {battleAttribute}!
                                 </p>
                                 <p className='App-text'>
-                                    Click to play again
+                                    Press any key to play again
                                 </p>
                             </div>
                             <div className='Battle_Deck'>
@@ -216,12 +216,16 @@ const MainBlock = () => {
         const oppositionPokemon = JSON.parse(localStorage.getItem("pokemonCData"))
         console.log(oppositionPokemon["pokemonName"])
 
+        // set an array with the randome battle attributes to pick from
         const battleAttributes = ["height", "id", "weight", "xp"]
         console.log(battleAttributes)
         const randomAttribute = battleAttributes[Math.floor(Math.random() * battleAttributes.length)]
+
+        //pick a random attribute
         localStorage.battleAttribute = randomAttribute
         console.log(localStorage.battleAttribute)
 
+        // determine the result and record to local storage
         if (myPokemon[randomAttribute] > oppositionPokemon[randomAttribute]) {
             localStorage.result = "win"
         }
@@ -234,6 +238,8 @@ const MainBlock = () => {
 
         console.log(localStorage.result)
 
+
+        // to move onto the next page
         document.addEventListener('keypress', (event) => {
             setMainBlock(BattleEnd)
           })
