@@ -32,7 +32,7 @@ const RandomPokemonA = (props) => {
             })
     }, [])
 
-    // export the pokemon data to local storage after converting it to string
+
     
 
 
@@ -42,9 +42,7 @@ const RandomPokemonA = (props) => {
     }
 
 
-    // // log the pokemon in local storage for the pokedex
-    
-    // localStorage.clear()
+    // log the pokemon in local storage for the pokedex and for battle data
     localStorage.pokemonAData = JSON.stringify(pokemonAData)
     localStorage.pokedexA = (pokemonAData.id)
 

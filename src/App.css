@@ -204,3 +204,77 @@
   text-transform: capitalize;
   font-weight:normal;
 }
+
+.Battle_Slate_Header {
+  margin-left: 3vw;
+  margin-right: auto;
+}
+
+.Battle_Deck {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: auto;
+  margin-top: 4vw;
+}
+
+@keyframes giggling-pokemon {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  50% {
+    transform: rotate(0deg);
+    transform: scale(1.02);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
+  100% {
+  transform: rotate(0deg);
+  }
+}
+
+.pokemonImage_Battle {
+  display: flex;
+  justify-items: bottom;
+  align-items: bottom;
+  justify-content: bottom;
+  margin-bottom: 0.2vw;
+  width: 25vw;
+  flex-basis: 100%;
+  transition: transform 3s;
+  Animation: giggling-pokemon infinite 0.5s ;
+}
+
+@keyframes jumping-pokemon {
+  0% {
+    transform: translateY(0vh) rotate(0deg);
+  }
+  25% {
+    transform: translateY(3vh) rotate(5deg);
+  }
+  50% {
+    transform: translateY(0vh) rotate(0deg);
+
+  }
+  75% {
+    transform: translateY(3vh) rotate(-5deg);
+  }
+  100% {
+  transform: translateY(0vh) rotate(0deg);
+  }
+}
+
+.pokemonImage_End {
+  display: flex;
+  justify-items: bottom;
+  align-items: bottom;
+  justify-content: bottom;
+  margin-bottom: 0.2vw;
+  width: 25vw;
+  flex-basis: 100%;
+  transition: transform 3s;
+  Animation: jumping-pokemon infinite 1s ;
+}
