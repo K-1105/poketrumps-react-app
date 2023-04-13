@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 import logo from '../assets/PokeTrumps logo.png'
-import RandomPokemon from './RandomPokemon'
+import RandomPokemonA from './RandomPokemonA'
+import RandomPokemonB from './RandomPokemonB'
+import RandomPokemonC from './RandomPokemonC'
 
 
 
@@ -15,8 +17,24 @@ const MainBlock = () => {
 // functions to hold different views of the mainBlock starting from last seen in the game
 // -------------------------------------------------------------------------------------
 
-    // Components to show in MainBlock on cards screen***********************************
-    const CardsMain = () => {
+    // Components to show in MainBlock on battle intro screen***********************************
+    const BattleIntro = () => {
+
+        // console.log(localStorage.pokemonAData)
+       
+        // read the local storage to access the current pokedex array or return an empty one if undefined
+        const pokedexData = localStorage.pokedexA
+       
+        // append the ID for pokemon we logged separately to local storage 
+        const updatedPokedex = [pokedexData, localStorage.pokedexA]
+
+        //save the updated array lack to local storage
+        localStorage.pokedex = updatedPokedex
+
+        console.log(localStorage.pokedex)
+
+        const myPokemon = JSON.parse(localStorage.getItem("pokemonAData"))
+        console.log(myPokemon["pokemonName"])
 
         return (
             <div className='Slate'>
@@ -29,19 +47,62 @@ const MainBlock = () => {
                 </header>
                 <div className='Slate-header'>
                     <p className='App-text'>
-                        You've been given...
+                        You chose {myPokemon.pokemonName}
                     </p>
                     <p className='App-text' style={{ marginLeft: "20vw" }}>
                         You're opponent has...
                     </p>
                 </div>
-                <div className='Card-deck'>
-                    {<RandomPokemon/>}
-                   
+                <div className='Card_Deck'>
+
+                    
                 </div>
+                <p className='App-text'>
+                    Click on the Pokemon you choose to battle
+                </p>
             </div>
+            
         )
     }
+
+
+ // Components to show in MainBlock on cards screen***********************************
+    const CardsMain = () => {
+
+
+        return (
+            <div className='Slate'>
+                <header className='Slate-header'>
+                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                    <img
+                        src={logo}
+                        className="App-logo-small"
+                        alt="small logo" />
+                </header>
+                <div className='Slate-header'>
+                    <p className='App-text'>
+                        You can choose between...
+                    </p>
+                    <p className='App-text' style={{ marginLeft: "20vw" }}>
+                        You're opponent has...
+                    </p>
+                </div>
+                <div className='Card_Deck'>
+                    {<RandomPokemonA cardClick = {() => setMainBlock(BattleIntro)} />}
+                    {<RandomPokemonB/>}
+                    {<RandomPokemonC/>}
+                
+                </div>
+                <p className='App-text'>
+                    Click on the Pokemon you choose to battle
+                </p>
+            </div>
+            
+        )
+    }
+
+    
+    
             
                     
 

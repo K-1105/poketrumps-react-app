@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const RandomPokemon = () => {
+const RandomPokemonD = (props) => {
 
     const [pokemonData, setPokemonData] = useState({
         image: null,
@@ -13,7 +13,7 @@ const RandomPokemon = () => {
     })
                        
     useEffect(() => {
-        const randomNumber = Math.floor(Math.random() * 150)
+        const randomNumber = Math.ceil(Math.random() * 150)
         const url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`
         fetch(url)
             .then(response => response.json())
@@ -36,9 +36,9 @@ const RandomPokemon = () => {
     }
     
     return (
-        console.log(pokemonData),
-        <button type= "button" className='pokemonCard'>
-            <img src={pokemonData.image} className="pokemonImage"></img>
+        // console.log(pokemonData),
+        <button type= "button" className='pokemonCard' style= {{ marginLeft: "3vw", pointerEvents: "none" } }>
+            <img src={pokemonData.image} className="pokemonImage" alt='pokemon'></img>
             <div className='pokemonCardText'>
                 <span >Name: {pokemonData.pokemonName}</span>
                 <span >ID: {pokemonData.id}</span>
@@ -51,4 +51,4 @@ const RandomPokemon = () => {
 
 }
 
-export default RandomPokemon
+export default RandomPokemonD

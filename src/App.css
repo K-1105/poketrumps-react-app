@@ -137,9 +137,15 @@
   -webkit-text-stroke: 0.25vw black;
 }
 
-.card-deck {
+.Card_Deck {
   display: inline-flex;
+  margin-right: auto;
+  margin-bottom: 3vw;
   flex-direction: row;
+  position: fixed;
+  padding: 0vw;
+  display:flex;
+  position: relative;
 }
 
 .pokemonCard {
@@ -147,17 +153,21 @@
   height: 23.5vw;
   padding: 2.5vw 1.5vw;
   margin-top: 1vw;
-  border-radius: 2vw;
+  margin-left: 0;
+  margin-right: auto;
+  border-radius: 1.8vw;
+  outline:1vw solid rgb(255, 225, 0);
+  outline-offset:-1vw; 
   background: url(assets/pokecard.png), linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.071));
-  background-size: contain;
+  background-size: cover ;
   background-repeat: no-repeat;
   box-shadow: 0.2vw 0.2vw 0.5vw rgba(0, 0, 0, 0.5);
 }
 
 .pokemonCard:hover {
   cursor: pointer;
-  border-width: 1vw;
-  border-color: red;
+  outline:1vw solid red;
+  outline-offset:-1vw; 
 }
 
 .pokemonImage {
@@ -167,16 +177,18 @@
   justify-content: center;
   width: 9vw;
   margin-bottom: 0.5vw;
+  margin-left: 2.5vw;
   flex-basis: 100%;
   transition: transform 3s;
 }
 
 .pokemonImage:hover{
-  transform: scale(-1.1, 1.1);
+  Animation: App-logo-spin infinite 0.4s ;
 }
 
 .pokemonCardText {
   margin-top: 1vw;
+  padding-left: 0.3vw;
   border-radius: 0.5vw;
   display: flex;
   flex-direction: column;
