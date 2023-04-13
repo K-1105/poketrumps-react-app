@@ -54,7 +54,7 @@ localStorage.pokedexC = (pokemonCData.id)
 // when all the data is set return the components 
 return (
     // console.log(pokemonData),
-    <button type= "button" className='pokemonCard' style= {{ marginLeft: "22vw" }} onClick= {props.cardClick}>
+    <button  className='pokemonCard' style= {{ marginLeft: "22vw", pointerEvents: "none"}} >
         <img src={pokemonCData.image} className="pokemonImage" alt='pokemon'></img>
         <div className='pokemonCardText'>
             <span >Name: {pokemonCData.pokemonName}</span>
