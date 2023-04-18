@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/poketrumps-react-app/static/css/main.3b478e27.css",
+    "main.js": "/poketrumps-react-app/static/js/main.6a4b4a5e.js",
+    "static/js/787.dde2b688.chunk.js": "/poketrumps-react-app/static/js/787.dde2b688.chunk.js",
+    "static/media/pokecard.png": "/poketrumps-react-app/static/media/pokecard.6f9863c89f0637408240.png",
+    "static/media/backdrop2.svg": "/poketrumps-react-app/static/media/backdrop2.e7d803cf90b8df2e7757.svg",
+    "static/media/PokeTrumps logo.png": "/poketrumps-react-app/static/media/PokeTrumps logo.eebc1171b35f359f31a4.png",
+    "index.html": "/poketrumps-react-app/index.html",
+    "main.3b478e27.css.map": "/poketrumps-react-app/static/css/main.3b478e27.css.map",
+    "main.6a4b4a5e.js.map": "/poketrumps-react-app/static/js/main.6a4b4a5e.js.map",
+    "787.dde2b688.chunk.js.map": "/poketrumps-react-app/static/js/787.dde2b688.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b478e27.css",
+    "static/js/main.6a4b4a5e.js"
+  ]
+}
