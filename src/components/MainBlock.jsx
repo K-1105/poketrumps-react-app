@@ -11,7 +11,7 @@ const MainBlock = () => {
 
 // useState to update the mainBlock******************************************************
     const [mainBlock, setMainBlock] = useState()
-    const round = 1
+     localStorage.round = 0
 
 
 // START OF: 
@@ -30,10 +30,6 @@ const MainBlock = () => {
 
          const battleAttribute = localStorage.getItem("battleAttribute")
 
-         document.addEventListener('keypress', (event) => {
-               setMainBlock(CardsMain)
-          }) 
-
 
 
         return (
@@ -41,7 +37,7 @@ const MainBlock = () => {
                 {localStorage.result == "draw" &&
                     <div className='Slate'>
                         <header className='Slate-header'>
-                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
                             <img
                                 src={logo}
                                 className="App-logo-small"
@@ -52,8 +48,24 @@ const MainBlock = () => {
                                 {myPokemon.pokemonName} drew against {oppositionPokemon.pokemonName} on {battleAttribute}!
                             </p>
                             <p className='App-text'>
-                                Press any key to play again
+                                Would you like to play again?
                             </p>
+                        </div>
+                        <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
+                            <button 
+                                type= "button" 
+                                className='Red-button' 
+                                style={{ margin: "0vw 1vw", display: "inline-block", scale: "80%"  }}
+                                onClick= {() => setMainBlock(CardsMain)}>
+                                    Yes please
+                            </button>
+                            <button 
+                                type= "button" 
+                                className='Red-button' 
+                                style={{ margin: "0vw 1vw", display:"inline-block", scale: "80%"  }}
+                                onClick= {() => setMainBlock(startMain)}>
+                                    No thanks
+                            </button>
                         </div>
                         <div className='Battle_Deck'>
                             <img src={myPokemon.image} className="pokemonImage_End" alt='my pokemon'></img>
@@ -66,7 +78,7 @@ const MainBlock = () => {
                 {localStorage.result == "win" &&
                     <div className='Slate'>
                         <header className='Slate-header'>
-                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
                             <img
                                 src={logo}
                                 className="App-logo-small"
@@ -77,8 +89,24 @@ const MainBlock = () => {
                                     CONGRATULATIONS! {myPokemon.pokemonName} beat {oppositionPokemon.pokemonName} on {battleAttribute}!
                                 </p>
                                 <p className='App-text'>
-                                    Press any key to play again
+                                    Would you like to play again?
                                 </p>
+                            </div>
+                            <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
+                                <button 
+                                    type= "button" 
+                                    className='Red-button' 
+                                    style={{ margin: "0vw 1vw", display: "inline-block", scale: "80%"  }}
+                                    onClick= {() => setMainBlock(CardsMain)}>
+                                        Yes please
+                                </button>
+                                <button 
+                                    type= "button" 
+                                    className='Red-button' 
+                                    style={{ margin: "0vw 1vw", display:"inline-block", scale: "80%"  }}
+                                    onClick= {() => setMainBlock(startMain)}>
+                                        No thanks
+                                </button>
                             </div>
                             <div className='Battle_Deck'>
                                 <img src={myPokemon.image} className="pokemonImage_End" alt='my pokemon' ></img>
@@ -89,7 +117,7 @@ const MainBlock = () => {
                 {localStorage.result == "lose" &&
                     <div className='Slate'>
                         <header className='Slate-header'>
-                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                            <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
                             <img
                                 src={logo}
                                 className="App-logo-small"
@@ -100,8 +128,24 @@ const MainBlock = () => {
                                     I'm afraid {myPokemon.pokemonName} lost to {oppositionPokemon.pokemonName} on {battleAttribute}!
                                 </p>
                                 <p className='App-text'>
-                                    Press any key to play again
+                                    Would you like to play again?
                                 </p>
+                            </div>
+                            <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
+                                <button 
+                                    type= "button" 
+                                    className='Red-button' 
+                                    style={{ margin: "0vw 1vw", display: "inline-block", scale: "80%"  }}
+                                    onClick= {() => setMainBlock(CardsMain)}>
+                                        Yes please
+                                </button>
+                                <button 
+                                    type= "button" 
+                                    className='Red-button' 
+                                    style={{ margin: "0vw 1vw", display:"inline-block", scale: "80%"  }}
+                                    onClick= {() => setMainBlock(startMain)}>
+                                        No thanks
+                                </button>
                             </div>
                             <div className='Battle_Deck'>
                                 <img src={oppositionPokemon.image} className="pokemonImage_End" alt='opposition pokemon'></img>
@@ -157,15 +201,12 @@ const MainBlock = () => {
 
         console.log(localStorage.result)
 
-        document.addEventListener('keypress', (event) => {
-            setMainBlock(BattleEnd)
-          })
 
 
         return (
             <div className='Slate'>
                 <header className='Slate-header'>
-                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
                     <img
                         src={logo}
                         className="App-logo-small"
@@ -178,9 +219,15 @@ const MainBlock = () => {
                     <p className='App-text'>
                         they will be battling using their {randomAttribute}!
                     </p>
-                    <p className='App-text'>
-                        Press any key to commence!!
-                    </p>
+                    </div>
+                <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
+                    <button 
+                        type= "button" 
+                        className='Red-button' 
+                        style={{ margin: "0vw 1vw", display: "inline-block", scale: "80%"  }}
+                        onClick= {() => setMainBlock(BattleEnd)}>
+                            BATTLE
+                    </button>
                 </div>
                 <div className='Battle_Deck'>
                     <img src={myPokemon.image} className="pokemonImage_Battle" alt='my pokemon'></img>
@@ -239,16 +286,12 @@ const MainBlock = () => {
         console.log(localStorage.result)
 
 
-        // to move onto the next page
-        document.addEventListener('keypress', (event) => {
-            setMainBlock(BattleEnd)
-          })
 
 
         return (
             <div className='Slate'>
                 <header className='Slate-header'>
-                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
+                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
                     <img
                         src={logo}
                         className="App-logo-small"
@@ -261,9 +304,15 @@ const MainBlock = () => {
                     <p className='App-text'>
                         they will be battling using their {randomAttribute}!
                     </p>
-                    <p className='App-text'>
-                        Press any key to commence!!
-                    </p>
+                </div>
+                <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
+                    <button 
+                        type= "button" 
+                        className='Red-button' 
+                        style={{ margin: "0vw 1vw", display: "inline-block", scale: "80%"  }}
+                        onClick= {() => setMainBlock(BattleEnd)}>
+                            BATTLE
+                    </button>
                 </div>
                 <div className='Battle_Deck'>
                     <img src={myPokemon.image} className="pokemonImage_Battle" alt='my pokemon'></img>
@@ -278,34 +327,37 @@ const MainBlock = () => {
  // Components to show in MainBlock on cards screen***********************************
     const CardsMain = () => {
 
+        
 
 
         return (
-            <div className='Slate'>
-                <header className='Slate-header'>
-                    <p className='App-text' style={{ marginRight: "22vw" }}>ROUND 1</p>
-                    <img
-                        src={logo}
-                        className="App-logo-small"
-                        alt="small logo" />
-                </header>
-                <div className='Slate-header'>
+            <div>{localStorage.setItem("round", parseInt(localStorage.getItem("round")) + 1)}
+                <div className='Slate'>
+                    <header className='Slate-header'>
+                        <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
+                        <img
+                            src={logo}
+                            className="App-logo-small"
+                            alt="small logo" />
+                    </header>
+                    <div className='Slate-header'>
+                        <p className='App-text'>
+                            You can choose between...
+                        </p>
+                        <p className='App-text' style={{ marginLeft: "20vw" }}>
+                            You're opponent has...
+                        </p>
+                    </div>
+                    <div className='Card_Deck'>
+                        {<RandomPokemonA cardClick = {() => setMainBlock(BattleIntroA)} />}
+                        {<RandomPokemonB cardClick = {() => setMainBlock(BattleIntroB)}/>}
+                        {<RandomPokemonC/>}
+                    
+                    </div>
                     <p className='App-text'>
-                        You can choose between...
-                    </p>
-                    <p className='App-text' style={{ marginLeft: "20vw" }}>
-                        You're opponent has...
+                        Click on the Pokemon you choose to battle
                     </p>
                 </div>
-                <div className='Card_Deck'>
-                    {<RandomPokemonA cardClick = {() => setMainBlock(BattleIntroA)} />}
-                    {<RandomPokemonB cardClick = {() => setMainBlock(BattleIntroB)}/>}
-                    {<RandomPokemonC/>}
-                
-                </div>
-                <p className='App-text'>
-                    Click on the Pokemon you choose to battle
-                </p>
             </div>
             
         )
@@ -398,21 +450,19 @@ const MainBlock = () => {
                     className= "App-text">
                         are you ready to play?
                 </p>
-                <div 
-                    className='App-footer'>
-                        <button 
-                            type= "button" 
-                            className='Red-button' 
-                            onClick= {() => setMainBlock(CardsMain)}>
-                                START
-                        </button>
-                        <button 
-                            type= "button" 
-                            className='Red-button' 
-                            onClick= {() => setMainBlock(rulesMain)}>
-                                RULES
-                        </button>
-                    
+                <div>
+                    <button 
+                        type= "button" 
+                        className='Red-button' 
+                        onClick= {() => setMainBlock(CardsMain)}>
+                            START
+                    </button>
+                    <button 
+                        type= "button" 
+                        className='Red-button' 
+                        onClick= {() => setMainBlock(rulesMain)}>
+                            RULES
+                    </button>
                 </div>
             </div>
         )
