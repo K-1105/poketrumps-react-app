@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react'
 import '../App.css'
 import logo from '../assets/PokeTrumps logo.png'
 
@@ -18,7 +17,7 @@ const BattleEndComponent = (props) => {
 
    return (
        <div>
-           {localStorage.result == "draw" &&
+           {localStorage.result === "draw" &&
                <div className='Slate'>
                    <header className='Slate-header'>
                        <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
@@ -59,7 +58,7 @@ const BattleEndComponent = (props) => {
 
            }
 
-           {localStorage.result == "win" &&
+           {localStorage.result === "win" &&
                <div className='Slate'>
                    <header className='Slate-header'>
                        <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>
@@ -98,7 +97,7 @@ const BattleEndComponent = (props) => {
                </div>
            }
            
-           {localStorage.result == "lose" &&
+           {localStorage.result === "lose" &&
                <div className='Slate'>
                    <header className='Slate-header'>
                        <p className='App-text' style={{ marginRight: "22vw" }}>ROUND {localStorage.getItem("round")}</p>

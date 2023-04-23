@@ -48,7 +48,7 @@ const BattleIntroAComponent = (props) => {
             const newWins = wins + 1
             localStorage.wins = newWins.toString()
             setWins(newWins)
-        }, [])
+        }, [wins])
     }
 
     const UpdateDraws = () => {
@@ -59,18 +59,18 @@ const BattleIntroAComponent = (props) => {
             const newDraws = draws + 1
             localStorage.draws = newDraws.toString()
             setDraws(newDraws)
-        }, [])
+        }, [draws])
     }
 
     const UpdateLoses = () => {
 
-        const [loses, setLoses] = useState(localStorage.loses ? (JSON.parse(localStorage.loses)) : 0)
+        const [losses, setLosses] = useState(localStorage.losses ? (JSON.parse(localStorage.losses)) : 0)
         
         useEffect(() => {
-            const newLoses = loses +1
-            localStorage.loses = newLoses.toString()
-            setLoses(newLoses)
-        }, [])
+            const newLosses = losses +1
+            localStorage.loses = newLosses.toString()
+            setLosses(newLosses)
+        }, [losses])
     }
 
 
@@ -79,7 +79,7 @@ const BattleIntroAComponent = (props) => {
         UpdateWins()
     }
 
-    else if (myPokemon[randomAttribute] == oppositionPokemon[randomAttribute]) {
+    else if (myPokemon[randomAttribute] === oppositionPokemon[randomAttribute]) {
         localStorage.result = "draw"
         UpdateDraws()
     }
