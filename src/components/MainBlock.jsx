@@ -26,7 +26,10 @@ const MainBlock = () => {
 
         return (
             <div>
-                {<BattleEndComponent buttonClickYes = {() => setMainBlock(CardsMain)} buttonClickNo = {() => setMainBlock(startMain)} />}
+                {<BattleEndComponent 
+                    buttonClickYes = {() => setMainBlock(CardsMain)} 
+                    buttonClickNo = {() => setMainBlock(startMain)} 
+                />}
             </div>
         )
     }

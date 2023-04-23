@@ -5,16 +5,18 @@ import logo from '../assets/PokeTrumps logo.png'
 
 const BattleIntroBComponent = (props) => {
  
-    // console.log(localStorage.pokemonAData)
-       
     // read the local storage to access the current pokedex array or return an empty one if undefined
-    const pokedexData = localStorage.pokedexB
-    
+    const updatedPokedex = localStorage.pokedex ? JSON.parse(localStorage.pokedex) : []
+   
     // append the ID for pokemon we logged separately to local storage 
-    const updatedPokedex = [...pokedexData, localStorage.pokedexB, localStorage.pokedexC]
+    updatedPokedex.push(...JSON.parse(`[${localStorage.pokedexA || ""}, ${localStorage.pokedexB || ""}, ${localStorage.pokedexC || ""}]`))
+
+    // remove the duplicates from updated pokedex (numbers get 'rendered' twice)
+    const updatedPokedexSet = [...new Set(updatedPokedex)]
+
 
     //save the updated array lack to local storage
-    localStorage.pokedex = updatedPokedex
+    localStorage.pokedex = JSON.stringify(updatedPokedexSet)
 
     console.log(localStorage.pokedex)
 
@@ -36,19 +38,58 @@ const BattleIntroBComponent = (props) => {
     localStorage.battleAttribute = randomAttribute
     console.log(localStorage.battleAttribute)
 
-    // determine the result and record to local storage
-    if (myPokemon[randomAttribute] > oppositionPokemon[randomAttribute]) {
-        localStorage.result = "win"
-    }
-    else if (myPokemon[randomAttribute] == oppositionPokemon[randomAttribute]) {
-        localStorage.result = "draw"
-    }
-    else  {
-        localStorage.result = "lose"
-    }
+//record the single result in local storage then also check if a tally has started, if so +1 if not make 1
 
-    console.log(localStorage.result)
+const UpdateWins = () => {
 
+    const [wins, setWins] = useState(localStorage.wins ? (JSON.parse(localStorage.wins)) : 0)
+    
+    useEffect(() => {
+        const newWins = wins + 1
+        localStorage.wins = newWins.toString()
+        setWins(newWins)
+    }, [])
+}
+
+const UpdateDraws = () => {
+
+    const [draws, setDraws] = useState(localStorage.draws ? (JSON.parse(localStorage.draws)) : 0)
+    
+    useEffect(() => {
+        const newDraws = draws + 1
+        localStorage.draws = newDraws.toString()
+        setDraws(newDraws)
+    }, [])
+}
+
+const UpdateLoses = () => {
+
+    const [loses, setLoses] = useState(localStorage.loses ? (JSON.parse(localStorage.loses)) : 0)
+    
+    useEffect(() => {
+        const newLoses = loses +1
+        localStorage.loses = newLoses.toString()
+        setLoses(newLoses)
+    }, [])
+}
+
+
+if (myPokemon[randomAttribute] > oppositionPokemon[randomAttribute]) {
+    localStorage.result = "win"
+    UpdateWins()
+}
+
+else if (myPokemon[randomAttribute] == oppositionPokemon[randomAttribute]) {
+    localStorage.result = "draw"
+    UpdateDraws()
+}
+
+else if (myPokemon[randomAttribute] < oppositionPokemon[randomAttribute]) {
+    localStorage.result = "lose"
+    UpdateLoses()
+}
+
+console.log(localStorage.result)
 
 
 
