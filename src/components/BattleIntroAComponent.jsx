@@ -29,7 +29,7 @@ const BattleIntroAComponent = (props) => {
     const oppositionPokemon = JSON.parse(localStorage.getItem("pokemonCData"))
     console.log(oppositionPokemon["pokemonName"])
 
-        // set an array with the random battle attributes to pick from
+    // set an array with the random battle attributes to pick from
     const battleAttributes = ["height", "id", "weight", "xp"]
     console.log(battleAttributes)
     const randomAttribute = battleAttributes[Math.floor(Math.random() * battleAttributes.length)]
@@ -48,7 +48,7 @@ const BattleIntroAComponent = (props) => {
             const newWins = wins + 1
             localStorage.wins = newWins.toString()
             setWins(newWins)
-        }, [wins])
+        }, [])
     }
 
     const UpdateDraws = () => {
@@ -59,7 +59,7 @@ const BattleIntroAComponent = (props) => {
             const newDraws = draws + 1
             localStorage.draws = newDraws.toString()
             setDraws(newDraws)
-        }, [draws])
+        }, [])
     }
 
     const UpdateLoses = () => {
@@ -70,7 +70,7 @@ const BattleIntroAComponent = (props) => {
             const newLosses = losses +1
             localStorage.loses = newLosses.toString()
             setLosses(newLosses)
-        }, [losses])
+        }, [])
     }
 
 
@@ -107,7 +107,7 @@ const BattleIntroAComponent = (props) => {
                     You chose {myPokemon.pokemonName} to battle against {oppositionPokemon.pokemonName},
                 </p>
                 <p className='App-text'>
-                    they will be battling using their {randomAttribute}!
+                    they will be battling using their {localStorage.battleAttribute}!
                 </p>
                 </div>
             <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>

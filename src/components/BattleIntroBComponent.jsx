@@ -48,7 +48,7 @@ const UpdateWins = () => {
         const newWins = wins + 1
         localStorage.wins = newWins.toString()
         setWins(newWins)
-    }, [wins])
+    }, [])
 }
 
 const UpdateDraws = () => {
@@ -59,7 +59,7 @@ const UpdateDraws = () => {
         const newDraws = draws + 1
         localStorage.draws = newDraws.toString()
         setDraws(newDraws)
-    }, [draws])
+    }, [])
 }
 
 const UpdateLoses = () => {
@@ -70,7 +70,7 @@ const UpdateLoses = () => {
         const newLosses = losses +1
         localStorage.loses = newLosses.toString()
         setLosses(newLosses)
-    }, [losses])
+    }, [])
 }
 
 
@@ -107,7 +107,7 @@ console.log(localStorage.result)
                     You chose {myPokemon.pokemonName} to battle against {oppositionPokemon.pokemonName},
                 </p>
                 <p className='App-text'>
-                    they will be battling using their {randomAttribute}!
+                    they will be battling using their {localStorage.battleAttribute}!
                 </p>
             </div>
             <div style={{ marginLeft: "-1vw", marginRight: "auto"}}>
