@@ -19,7 +19,8 @@ The site uses React to:
 ---
 <br>
 <br>
-  
+
+![CFG certificate](/small-certificate.png)
 
 ## Getting Started with Create React App
 
